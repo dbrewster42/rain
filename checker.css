@@ -1,0 +1,15 @@
+{{ col }} {
+	display: inline-block;
+	background-color: {{ col }};
+	width: 100px;
+	height: 100px;
+}
+.{{ col2 }} {
+	display: inline-block;
+	background-color: {{ col2 }};
+	width: 100px;
+	height: 100px;
+}
+#row {
+	display: block;
+}

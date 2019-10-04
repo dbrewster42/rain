@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkerboard</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='checker.css') }}">
+</head>
+<body>
+
+	{% for x in range(num) %}
+	<div id={{ col }}>
+		{% for y in range(num2) %}
+		<div class="light"></div>
+		<div class="dark"></div>
+		{% endfor %}
+	</div>
+	<div id={{ col2 }}>
+		{% for y in range(num2) %}
+		<div class="dark"></div>
+		<div class="light"></div>
+		{% endfor %}
+	</div>
+	{% endfor %}
+</body>
+</html>
