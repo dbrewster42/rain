@@ -1,10 +1,10 @@
-{{ col }} {
+.light {
 	display: inline-block;
 	background-color: {{ col }};
 	width: 100px;
 	height: 100px;
 }
-.{{ col2 }} {
+.dark {
 	display: inline-block;
 	background-color: {{ col2 }};
 	width: 100px;
