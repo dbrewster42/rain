@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Playground</title>
+<style type="text/css">
+	div {
+		background-color: {{ col }};
+		width: 200px;
+		height: 200px;
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+	{% for x in range(num) %}
+	<div></div>
+	{% endfor %}
+</body>
+</html>
