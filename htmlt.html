@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Table</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.colu {
+			width: 200px;			
+		}
+		#table {
+			width: 700px;
+		}
+	</style>
+</head>
+<body>
+
+<table class="table table-bordered", id="table">
+  <thead class="thead-dark">
+    <tr>
+      
+      <th scope="col", class="colu">First Name</th>
+      <th scope="col", class="colu">Last Name</th>
+      <th scope="col">Full Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  	
+    <tr>
+    {% for user in users %}
+      
+      <td>{{ user['first_name'] }}</td>
+      <td>{{ user['last_name'] }}</td>
+      <td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+    </tr>
+    <tr>
+     
+   {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
