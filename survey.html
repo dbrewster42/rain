@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survey</title>
+	<style type="text/css">
+		p {
+			font-size: 20 px;
+			color: blue;
+		}
+		h1 {
+			color: red;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Ninja Survey</h1>
+	<form action="/result" method='post'>
+		Name: <input type="text" name="name">
+	
+	<p>Do you have previous ninja training?
+	<input type="radio" name="badass" value="Yes"> Yes
+	<input type="radio" name="badass" value="No"> No</p>
+	<p>How many enemies have you defeated in hand to hand combat?
+	<select>
+		<option value="0-5">0-5</option>
+		<option value="6-10">6-10</option>
+		<option value="11-25">11-25</option>
+		<option value="26-100">26-100</option>
+		<option value="100+">100+</option>
+	</select></p>
+	<p>How much do you want to join our Dojo?</p>
+	
+		<input type="radio" name="want" value="most">I really want to join your Dojo <br>
+		<input type="radio" name="want" value="some">I will join if I don't have anything better going on <br>
+		<input type="radio" name="want" value="least">I just like filling out forms and have no interest in your Dojo
+	
+	<p>Which weapons are your proficient with?</p>
+	
+		<input type="checkbox" name="weapon" value="nunchucks">Nunchucks<br>
+		<input type="checkbox" name="weapon" value="stars">Throwing Star<br>
+		<input type="checkbox" name="weapon" value="sword">Samurai Sword<br>
+		<input type="checkbox" name="weapon" value="axe">Battle Axe<br>
+		<input type="checkbox" name="weapon" value="hand">Hand to Hand<br>
+	<p>Why do you want to join our Dojo?</p>
+	<textarea name="description"></textarea>
+	
+	<input type="submit" value="Submit">
+	</form>
+	
+</body>
+</html>
