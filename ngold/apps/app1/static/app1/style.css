@@ -1,0 +1,28 @@
+#gold {
+	border: 5px solid black;
+	width: 200px;
+	height:	20px;
+}
+h3 {
+	display: inline-block;
+}
+.box {
+	border: 5px solid black;
+	width: 220px;
+	height: 220px;
+	display: inline-block;
+	margin: 20px;
+}
+#activities {
+	width: 990px;
+	height: 200px;
+	border: 3px solid black;
+	margin-left: 20px;
+	overflow: scroll;
+}
+.won {
+	color: green;
+}
+.lose {
+	color: red;
+}
