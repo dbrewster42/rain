@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Authors</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'author/style.css' %}">
+</head>
+<body>
+	<div id="add">
+		<h1>Add an Author</h1>
+		<form action="/add_author" method="post">
+			{% csrf_token %}
+			First Name <input type="text" name="first"><br>
+			Last Name <input type="text" name="last"><br>
+			Notes <textarea name="notes" id="notes"></textarea><br>
+			<input type="submit" value="Add" id="add">
+		</form>
+	</div>
+	<div id="table">
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">ID</th>
+		      <th scope="col" id="names">Name</th>
+		      <th scope="col">Action</th>
+		      
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for author in Authors %}
+		    <tr>
+		    	
+		      <th scope="row">{{ author.id }}</th>
+		      <td>{{ author.first_name }} {{ author.last_name }}</td>
+		      <td><a href="/author/{{ author.id }}">View</a></td>
+		      	
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+	</div>
+</body>
+</html>

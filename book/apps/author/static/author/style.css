@@ -1,0 +1,24 @@
+th {
+	width: 150px;
+}
+#table {
+	width: 360px;
+	display: inline-block;
+	margin-left: 200px;
+}
+#add {
+	display: inline-block;
+	vertical-align: top;
+}
+#names {
+	width: 200px;
+	color: red;
+}
+#notes {
+	margin-left: 33px;
+	width: 180px;
+	height: 100px;
+}
+#title {
+	margin-left: 35px;
+}

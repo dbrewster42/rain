@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Description</title>
+</head>
+<body>
+	<h1>{{ Book.title }}</h1>
+	<p>ID: {{ Book.id }}</p>
+	<p>Description: {{ Book.desc }}</p>
+
+	<ul>Authors: 
+		{% for i in This %}
+		<li>{{ i.first_name }} {{ i.last_name }}</li>
+		{% endfor %}
+	<form action="/bookaddauth" method="POST">
+		{% csrf_token %}
+		<input type="hidden" name="number" value={{Book.id}}>
+		<select name="Auth">
+			{% for author in Authors %}				
+			<option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name}}</option>				
+			{% endfor %}
+		</select>
+		<input type="submit" name ="Submit" value="Add">
+	</form>
+</body>
+</html>
