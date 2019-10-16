@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show Info</title>
+</head>
+<body>
+	<h1>{{Show.id}}</h1>
+	<a href="/shows">Go Back</a>
+	<h3>Title: {{Show.title}}</h3>
+	<h3>Release Date: {{Show.release}}</h3>
+	<h3>Description: {{Show.description}}</h3>
+	<p></p><p></p><p></p>
+	<h3>{{Show.updated_at}}</h3>
+	<a href="/shows/{{Show.id}}/edit">Edit</a>
+	<a href="/shows/{{Show.id}}/destroy">Delete</a>
+
+
+</body>
+</html>

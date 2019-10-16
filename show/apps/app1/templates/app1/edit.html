@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+</head>
+<body>
+	<h1>Edit Show {{Show.id}}</h1>
+	<a href="/shows">Go Back</a>
+	<form action="/shows/{{Show.id}}/update" method="POST">
+		{% csrf_token %}
+		Title <br>
+		<input type="text" name="title"><br>
+		Network
+		<input type="text" name="network">
+		Release Date
+		<input type="date" name="date">
+		Description <br>
+		<textarea name="desc"></textarea>
+		<input type="submit" value="Update">
+		<a href="/shows/{{Show.id}}">Go to Show</a>
+	</form>
+
+</body>
+</html>
