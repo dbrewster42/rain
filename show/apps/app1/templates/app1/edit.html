@@ -6,6 +6,13 @@
 <body>
 	<h1>Edit Show {{Show.id}}</h1>
 	<a href="/shows">Go Back</a>
+	{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li>{{message}}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 	<form action="/shows/{{Show.id}}/update" method="POST">
 		{% csrf_token %}
 		Title <br>

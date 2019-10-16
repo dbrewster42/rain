@@ -15,13 +15,19 @@ def new(request):
 	return render(request, 'app1/add.html')
 
 def create(request):
-	
-	if request.method == "POST":
-		newshow = Show.objects.create(title=request.POST['title'], network=request.POST['network'], release=request.POST['date'], description=request.POST['desc'])
-		
-		newshow_id = newshow.id
+	errors = Show.objects.basic_validator(request.POST)
+	if len(errors) > 0:
+		for key, value in errors.items():
+			messages.error(request, value)
+		return redirect('/shows/new')
+	else :
 
-	return redirect(f'/shows/{newshow_id}')
+		if request.method == "POST":
+			newshow = Show.objects.create(title=request.POST['title'], network=request.POST['network'], release=request.POST['date'], description=request.POST['desc'])
+			newshow_id = newshow.id
+			messages.success(request, "Show added")
+
+		return redirect(f'/shows/{newshow_id}')
 
 def info(request, num):
 	this_show = Show.objects.get(id=num)
@@ -36,22 +42,27 @@ def edit(request, num):
 	context = {
 		"Show" : this_show
 	}
+	
 	return render(request, 'app1/edit.html', context)
 
 def update(request, num):
-	print("asdlkfj")
-	this_show = Show.objects.get(id=num)
-	if request.method == "POST":
-		this_show.title = request.POST['title']
-		this_show.network = request.POST['network']
-		this_show.release = request.POST['date']
-		this_show.description = request.POST['desc']
-		this_show.save()
-		#newshow = Show.objects.create(title=request.POST['title'], network=request.POST['network'], release=request.POST['date'], description=request.POST['desc'])
-		#newshow_id = newshow.id
-				
-     
-	return redirect(f'/shows/{num}')
+	errors = Show.objects.basic_validator(request.POST)
+	if len(errors) > 0:
+		for key, value in errors.items():
+			messages.error(request, value)
+		return redirect(f'/shows/{num}/edit')
+	else:
+
+		this_show = Show.objects.get(id=num)
+		if request.method == "POST":
+			this_show.title = request.POST['title']
+			this_show.network = request.POST['network']
+			this_show.release = request.POST['date']
+			this_show.description = request.POST['desc']
+			this_show.save()
+			messages.success(request, "Show updated!")
+
+		return redirect(f'/shows/{num}')
 
 def destroy(request, num):
 	Show.objects.get(id=num).delete()
